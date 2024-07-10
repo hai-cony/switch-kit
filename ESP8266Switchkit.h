@@ -6,7 +6,7 @@
 class ESP8266Switchkit {
   public: 
     String startConnection(String ssid, String password);
-    String fetch(String token);
+    String fetch(String apikey);
 };
 
 #endif
