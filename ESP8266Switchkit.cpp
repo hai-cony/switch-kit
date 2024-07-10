@@ -42,10 +42,10 @@ String ESP8266Switchkit::startConnection(String ssid, String password)
   return "[SETUP] NODEMCU DEVICE READY";
 }
 
-String ESP8266Switchkit::fetch(String apikey, String url){
+String ESP8266Switchkit::fetch(String apikey){
   String obj;
 
-  if (WiFi.status() == WL_CONNECTED && (millis() - lastTime) > 7000)
+  if (WiFi.status() == WL_CONNECTED && (millis() - lastTime) > 10000)
   {
     std::unique_ptr<BearSSL::WiFiClientSecure> client(new BearSSL::WiFiClientSecure);
 
@@ -54,7 +54,7 @@ String ESP8266Switchkit::fetch(String apikey, String url){
     HTTPClient https;
 
     // Your Domain name with URL path or IP address with path
-    https.begin(*client, url);
+    https.begin(*client, "https://express-for-vercel-eight.vercel.app/esp/fetcher");
 
     https.addHeader("Content-Type", "application/json");
 
