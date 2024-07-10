@@ -89,7 +89,7 @@ String ESP8266Switchkit::fetch(String apikey){
   }
   else
   {
-    if ((millis() - lastTime) > 5000)
+    if ((millis() - lastTime) > 10000)
     {
       lastTime = millis();
     }
